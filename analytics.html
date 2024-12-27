@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #d3d3d3;
+            padding: 10px 20px;
+        }
+        header .logo {
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgb(129, 126, 126);
+            padding: 5px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 50px;
+        }
+
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 25px;
+            transition: color 0.3s;
+        }
+
+        .navbar .nav-links a:hover {
+            color: #0078ff;
+        }
+
+        .navbar .logout {
+            background-color: #ff4d4d;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar .logout:hover {
+            background-color: #e60000;
+        }
+
+        main {
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #d3d3d3;
+        }
+        table th, table td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ccc;
+        }
+        table th {
+            background-color: #b0b0b0;
+        }
+        .calendar {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo" onclick="window.location.href='https://guardian.media/'">
+            <img src="images/logo.png" alt="Logo" class="logo">
+        </div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Theme park</a>
+            <a href="#">Requests</a>
+        </div>
+        <div class="toggle-container">
+            <label>
+                <input type="checkbox" id="modeToggle">
+                <div class="toggle-switch"></div>
+            </label>
+        </div>
+        <a href="login.html" class="logout">Logout</a>
+    </div>
+
+    <main>
+        <h1>Analytics</h1>
+        <div class="calendar">
+            <label for="date-picker">Select Date: </label>
+            <input type="date" id="date-picker">
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Start Time</th>
+                    <th>Stop Time</th>
+                    <th>No. of Runs</th>
+                    <th>Date</th>
+                    <th>No. of People</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>10:00 AM</td>
+                    <td>10:30 AM</td>
+                    <td>3</td>
+                    <td>2024-12-20</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>11:00 AM</td>
+                    <td>11:30 AM</td>
+                    <td>2</td>
+                    <td>2024-12-20</td>
+                    <td>40</td>
+                </tr>
+                <tr>
+                    <td>12:00 PM</td>
+                    <td>12:30 PM</td>
+                    <td>4</td>
+                    <td>2024-12-20</td>
+                    <td>60</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sai Teertha</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color:rgb(50, 49, 49);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color:rgb(129, 126, 126);
+            padding: 5px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius : 10px
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 50px;
+        }
+
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 25px;
+            transition: color 0.3s;
+        }
+
+        .navbar .nav-links a:hover {
+            color: #0078ff;
+        }
+
+        .navbar .logout {
+            background-color: #ff4d4d;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar .logout:hover {
+            background-color: #e60000;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 30px;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        .card {
+            background:rgb(94, 91, 91);
+            border-radius: 8px;
+            padding: 30px;
+            color: #fff;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        .card .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .card .buttons button {
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .card .buttons .services {
+            background-color:rgb(198, 220, 54);
+            color: white;
+        }
+
+        .card .buttons .services:hover {
+            background-color:rgb(221, 232, 20);
+        }
+
+        .card .buttons .acs {
+            background-color: #ff4d4d;
+            color: white;
+        }
+
+        .card .buttons .acs:hover {
+            background-color: #e60000;
+        }
+
+        .card .buttons .analytics {
+            background-color: #0078ff;
+            color: white;
+        }
+
+        .card .buttons .analytics:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            .navbar .nav-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo" onclick="window.location.href='https://guardian.media/'"><img src="images/logo.png" alt="Logo" class="logo"></div>
+        <div class="logo" onclick="window.location.href='https://saiteerth.in/'"><img src="images/saiteertha.png" alt="Logo" class="logo"></div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Theme park</a>
+            <a href="#">Requests</a>
+        </div>
+        <a href="#" class="logout">Logout</a>
+    </div>
+
+    <div class="grid-container">
+        <div class="card">
+            <h3>Show 1</h3>
+            <div class="buttons">
+                <button class="shows">Services</button>
+                <button class="acs">ACS</button>
+                <button class="analytics">Analytics</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Show 2</h3>
+            <div class="buttons">
+                <button class="shows">Services</button>
+                <button class="acs">ACS</button>
+                <button class="analytics">Analytics</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Show 3</h3>
+            <div class="buttons">
+                <button class="shows">Services</button>
+                <button class="acs">ACS</button>
+                <button class="analytics">Analytics</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Show 4</h3>
+            <div class="buttons">
+                <button class="shows">Services</button>
+                <button class="acs">ACS</button>
+                <button class="analytics">Analytics</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Show 5</h3>
+            <div class="buttons">
+                <button class="shows">Services</button>
+                <button class="acs">ACS</button>
+                <button class="analytics">Analytics</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Show 6</h3>
+            <div class="buttons">
+                <button class="shows">Services</button>
+                <button class="acs">ACS</button>
+                <button class="analytics">Analytics</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

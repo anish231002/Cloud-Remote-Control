@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(50, 49, 49);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: rgb(126, 126, 126);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            color: rgb(237, 236, 236);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgb(129, 126, 126);
+            padding: 5px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 98%;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #fff;           
+            border-radius: 10px;               
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 50px;
+        }
+
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 25px;
+            transition: color 0.3s;
+        }
+
+        .navbar .nav-links a:hover {
+            color: #0078ff;
+        }
+
+        .navbar .logout {
+            background-color: #ff4d4d;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar .logout:hover {
+            background-color: #e60000;
+        }
+
+        /* Main Switch Styling */
+        .main-switch-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .main-switch-container label {
+            font-size: 24px;
+            margin-right: 20px;
+        }
+
+        .main-switch {
+            position: relative;
+            width: 120px;
+            height: 60px;
+        }
+
+        .main-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .main-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 60px;
+        }
+
+        .main-slider:before {
+            position: absolute;
+            content: "";
+            height: 50px;
+            width: 50px;
+            left: 5px;
+            bottom: 5px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .main-slider {
+            background-color: #4caf50;
+        }
+
+        input:checked + .main-slider:before {
+            transform: translateX(60px);
+        }
+
+        /* Status Section Styling */
+        .status {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .status-item .name {
+            flex: 1;
+            text-align: left;
+            font-size: 18px;
+        }
+
+        .status-item .toggle {
+            flex: 1;
+            text-align: center;
+        }
+
+        .status-item .indicator {
+            flex: 1;
+            text-align: right;
+        }
+
+        .status-indicator {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+
+        .status-indicator.green {
+            background-color: #4caf50;
+        }
+
+        .status-indicator.yellow {
+            background-color: #ffeb3b;
+        }
+
+        .status-indicator.red {
+            background-color: #ff4d4d;
+        }
+
+        /* Small Toggle Switch Styling */
+        .small-switch {
+            position: relative;
+            width: 50px;
+            height: 25px;
+        }
+
+        .small-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .small-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 25px;
+        }
+
+        .small-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .small-slider {
+            background-color: #4caf50;
+        }
+
+        input:checked + .small-slider:before {
+            transform: translateX(25px);
+        }
+
+        /* Adjust container positioning to account for navbar */
+        .container {
+            margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo" onclick="window.location.href='https://guardian.media/'"><img src="images/logo.png" alt="Logo" class="logo"></div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Theme Park</a>
+            <a href="#">Requests</a>
+        </div>
+        <a href="#" class="logout">Logout</a>
+    </div>
+
+    <div class="container">
+        <!-- Main Control Switch -->
+        <div class="main-switch-container">
+            <label for="main-toggle">Theme Park Main Switch</label>
+            <div class="main-switch">
+                <input type="checkbox" id="main-toggle" onclick="toggleAll()">
+                <span class="main-slider"></span>
+            </div>
+        </div>
+
+        <!-- Status Section -->
+        <div class="status">
+            <div class="status-item">
+                <div class="name">Dino</div>
+                <div class="toggle">
+                    <div class="small-switch">
+                        <input type="checkbox" id="dmx-toggle" onclick="updateStatus('dmx-status', 'dmx-toggle')">
+                        <span class="small-slider"></span>
+                    </div>
+                </div>
+                <div class="indicator">
+                    <span class="status-indicator red" id="dmx-status"></span>
+                </div>
+            </div>
+            <div class="status-item">
+                <div class="name">Titanic</div>
+                <div class="toggle">
+                    <div class="small-switch">
+                        <input type="checkbox" id="show-toggle" onclick="updateStatus('show-status', 'show-toggle')">
+                        <span class="small-slider"></span>
+                    </div>
+                </div>
+                <div class="indicator">
+                    <span class="status-indicator red" id="show-status"></span>
+                </div>
+            </div>
+            <div class="status-item">
+                <div class="name">Entrance Fountain Show</div>
+                <div class="toggle">
+                    <div class="small-switch">
+                        <input type="checkbox" id="video-toggle" onclick="updateStatus('video-status', 'video-toggle')">
+                        <span class="small-slider"></span>
+                    </div>
+                </div>
+                <div class="indicator">
+                    <span class="status-indicator red" id="video-status"></span>
+                </div>
+            </div>        
+        </div>
+    </div>
+
+    <script>
+        function toggleAll() {
+            const mainToggle = document.getElementById('main-toggle');
+            const toggles = ['dmx-toggle', 'show-toggle', 'video-toggle'];
+            const statuses = ['dmx-status', 'show-status', 'video-status'];
+
+            toggles.forEach((toggleId, index) => {
+                const toggle = document.getElementById(toggleId);
+                toggle.checked = mainToggle.checked;
+                updateStatus(statuses[index], toggleId);
+            });
+        }
+
+        function updateStatus(statusId, toggleId) {
+            const statusElement = document.getElementById(statusId);
+            const toggleElement = document.getElementById(toggleId);
+
+            statusElement.className = "status-indicator"; // Reset classes
+            if (toggleElement.checked) {
+                if (statusId === "show-status") {
+                    statusElement.classList.add("yellow");
+                } else {
+                    statusElement.classList.add("green");
+                }
+            } else {
+                statusElement.classList.add("red");
+            }
+        }
+    </script>
+</body>
+</html>
